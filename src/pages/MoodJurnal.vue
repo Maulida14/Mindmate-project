@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-// --- DATA PILIHAN MOOD ---
+// Data pilihan mood
 const moods = [
   { icon: '😆', label: 'Senang', value: 'happy', color: 'bg-green-100 border-green-200' },
   { icon: '🙂', label: 'Tenang', value: 'calm', color: 'bg-blue-100 border-blue-200' },
@@ -11,12 +11,12 @@ const moods = [
   { icon: '😡', label: 'Marah', value: 'angry', color: 'bg-red-100 border-red-200' },
 ];
 
-// --- STATE ---
+// state
 const selectedMood = ref(null);
 const note = ref('');
 const journalEntries = ref([]);
 
-// --- FUNGSI ---
+// --- Function ---
 
 // 1. Load data dari LocalStorage saat halaman dibuka
 onMounted(() => {

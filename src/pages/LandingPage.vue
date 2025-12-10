@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#ffecef] pt-0 pb-0">
+  <section class="bg-[#ffecef] min-h-screen pt-0 pb-0">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-4 items-center">
       
       <!-- Text -->

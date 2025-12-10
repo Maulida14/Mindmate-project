@@ -62,7 +62,7 @@
               v-model="form.name"
               type="text" 
               placeholder="Enter your name"
-              class="w-full mt-1 p-3 border rounded-lg"
+              class="mt-1 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300"
               required
             />
           </div>
@@ -73,38 +73,68 @@
               v-model="form.email"
               type="email" 
               placeholder="Enter your email"
-              class="w-full mt-1 p-3 border rounded-lg"
+              class="mt-1 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300"
               required
             />
           </div>
 
-          <div>
-            <label class="font-semibold">Subject</label>
-            <select 
-              v-model="form.subject"
-              class="w-full mt-1 p-3 border rounded-lg"
-              required
+          <div class="relative">
+            <label class="font-semibold block mb-1">Subject</label>
+            
+            <button 
+              type="button"
+              @click="isDropdownOpen = !isDropdownOpen"
+              class="mt-1 w-full px-4 py-2 border rounded-lg bg-white text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all"
+              :class="isDropdownOpen ? 'border-pink-300 ring-2 ring-pink-300' : 'border-gray-200'"
             >
-              <option value="">Select a subject</option>
-              <option>General Inquiry</option>
-              <option>Technical Support</option>
-              <option>Feedback</option>
-            </select>
-          </div>
+              <span :class="form.subject ? 'text-black' : 'text-gray-400'">
+                {{ form.subject || 'Select a subject' }}
+              </span>
 
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                class="h-5 w-5 text-gray-500 transition-transform duration-200"
+                :class="{ 'rotate-180': isDropdownOpen }"
+                viewBox="0 0 20 20" 
+                fill="currentColor"
+              >
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <div 
+              v-if="isDropdownOpen"
+              class="absolute z-10 mt-2 w-full bg-white rounded-xl shadow-xl border border-pink-100 overflow-hidden"
+            >
+              <ul class="py-1">
+                <li 
+                  v-for="option in subjectOptions" 
+                  :key="option"
+                  @click="selectOption(option)"
+                  class="px-4 py-2 text-gray-600 hover:bg-[#ffe9ec] hover:text-[#d86478] cursor-pointer transition-colors duration-200 flex items-center justify-between"
+                >
+                  {{ option }}
+                  
+                  <span v-if="form.subject === option" class="text-[#d86478] font-bold">✓</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div v-if="isDropdownOpen" @click="isDropdownOpen = false" class="fixed inset-0 z-0 bg-transparent cursor-default"></div>
+          </div>
           <div>
             <label class="font-semibold">Message</label>
             <textarea
               v-model="form.message"
               placeholder="Write your message here..."
-              class="w-full mt-1 p-3 border rounded-lg min-h-[120px]"
+              class="mt-1 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300"
               required
             ></textarea>
           </div>
 
           <button 
             type="submit" 
-            class="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800"
+            class="w-full bg-[#d86478] text-white py-2 rounded-lg hover:bg-[#c05567] transition duration-200 shadow-md"
           >
             Submit
           </button>
@@ -129,7 +159,7 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 const form = reactive({
   name: "",
@@ -138,11 +168,16 @@ const form = reactive({
   message: "",
 });
 
+const isDropdownOpen = ref(false); 
+const subjectOptions = ["General Inquiry", "Technical Support", "Feedback"]; 
+
+const selectOption = (value) => {
+  form.subject = value;     
+  isDropdownOpen.value = false;
+};
+
 const submitForm = () => {
   console.log("Form submitted:", form);
   alert("Thank you! Your message has been sent.");
 };
 </script>
-
-<style scoped>
-</style>

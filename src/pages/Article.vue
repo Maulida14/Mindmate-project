@@ -1,240 +1,145 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, nextTick, computed} from 'vue';
 
-// Data Artikel (Saya tambahkan 'desc' agar mirip desain Figma)
+// Data Artikel
 const articles = [
   { 
     title: 'Membangun Kesejahteraan Pikiran', 
-    desc: 'Menulis setiap hari bisa bantu kamu memahami perasaan dan pikiran dengan lebih jujur.',
+    desc: 'Menjaga ketenangan  dan keseimbangan emosi agar hidup terasa lebih ringan dan sehat.',
     file: '/pdf/Membangun-Kesejahteraan-Pikiran-untuk-Kesehatan-Mental-Melalui-Gaya-Hidup-Sehat.pdf' 
   },
   { 
     title: 'Mengatasi Overthinking dengan Cara Sederhana', 
-    desc: 'Nggak perlu rumit! Coba tarik napas dalam-dalam, dengarkan musik tenang.',
+    desc: 'Menenangkan pikiran yang berputar berlebihan dengan fokus pada hal-hal yang dapat dikendalikan.',
     file: '/pdf/Mengatasi-Overthingking.pdf' 
   },
   { 
     title: 'Mindfulness sebagai Strategi Regulasi Emosi', 
-    desc: 'Menolak bukan berarti egois. Kadang itu bentuk terbaik dari menghargai diri sendiri.',
+    desc: 'Membantu seseorang menyadari perasaan dan pikirannya secara penuh di saat ini.',
     file: '/pdf/Mindfullness-sebagai-Strategi-Regulasi-Emosi.pdf' 
   },
   {
     title: 'Peran Self-care sebagai Strategi Pencegahan & Pemulihan',
-    desc: 'Tidur yang cukup bantu otakmu pulih dan bikin kamu lebih siap menghadapi hari esok.',
+    desc: 'Memberi ruang bagi tubuh dan pikiran untuk beristirahat, memulihkan energi, serta menjaga keseimbangan emosional sebelum tekanan menjadi lebih berat.',
     file: '/pdf/Peran-SelfCare-sebagai-Strategi-Pencegahan&Pemulihan-Gangguan-Kesehatan-Mental.pdf'
   },
   {
     title: 'Strategi Efektif Mengelola Stres',
-    desc: 'Mencintai diri sendiri bukan berarti sombong, tapi sadar bahwa kamu pantas bahagia.',
+    desc: 'Melibatkan cara-cara terarah untuk menenangkan pikiran, mengatur emosi, dan menjaga tubuh tetap stabil.',
     file: '/pdf/Strategi-Efektif-Mengelola-Stres-di-Tengah-Kehidupan-Digital.pdf'
   },
   {
     title: 'Strategi Menangani Overthingking di Era Digital',
-    desc: 'Kadang langkah baik bukan maju terus, tapi berhenti sejenak dan bernapas.',
+    desc: 'Berfokus pada membatasi paparan informasi yang berlebihan, mengatur penggunaan teknologi, dan membangun kebiasaan sadar diri.',
     file: '/pdf/Strategi-Menangani-Overthingking-di-Era-Digital.pdf'
+  },
+  {
+    title: 'Pentingnya Self Love Serta Cara Menerapkannya Dalam Diri',
+    desc: 'Membantu individu menghargai dirinya dan menjaga ketahanan mental.',
+    file: '/pdf/Pentingnya-Self-Love-Serta-Cara-Menerapkannya-Dalam-Diri.pdf'
+  },
+  {
+    title: 'Self Healing? Terapi atau Rekreasi',
+    desc: 'Proses pemulihan diri yang dapat dilakukan melalui pendekatan terapi maupun aktivitas rekreasi.',
+    file: '/pdf/Self-Healing-Terapi-atau-Rekreasi.pdf'
+  },
+  {
+    title: 'Mindfullness dengan Kesejahteraan Psikologis',
+    desc: 'Latihan menyadari pikiran, emosi, dan sensasi tubuh secara penuh, sehingga individu dapat merespons situasi dengan lebih tenang dan terkontrol.',
+    file: '/pdf/Mindfullness-dengan-Kesejahteraan-Psikologis.pdf'
+  },
+  {
+    title: 'Peningkatan Pikiran Positif Pada Remaja Melalui Terapi Relaksasi',
+    desc: 'Membantu menenangkan sistem saraf, meredakan ketegangan, dan menciptakan ruang mental yang lebih jernih.',
+    file: '/pdf/Peningkatan-Pikiran-Positif-Pada-Remaja-Melalui-Terapi-Relaksasi.pdf'
   }
 ];
 
 const selectedPdf = ref(null);
+const lastScrollPosition = ref(0);
+
+const limit = ref(8);
+const visibleArticles = computed(() => {
+  return articles.slice(0, limit.value);
+});
+const loadMore = () => {
+  limit.value += 4;
+};
+const hasMoreArticles = computed(() => {
+  return limit.value < articles.length;
+});
 
 const openArticle = (filePath) => {
+  lastScrollPosition.value = window.scrollY;
   selectedPdf.value = filePath;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'auto' });
 };
 
-const goBack = () => {
+const closeArticle = async () => {
   selectedPdf.value = null;
+  await nextTick();
+  window.scrollTo({ 
+    top: lastScrollPosition.value, behavior: 'auto'
+  });
 };
 </script>
 
 <template>
-  <div class="page-container">
+  <div class="min-h-screen px-5 py-10 bg-[#fff5f7] font-sans">
     
-    <div v-if="!selectedPdf" class="grid-view">
-      <div class="header-section">
-        <h2>Artikel & Insight Terbaru</h2>
-        <p>Bacaan ringan untuk bantu kamu memahami diri dan menjaga pikiran tetap tenang.</p>
+    <div v-if="!selectedPdf">
+      
+      <div class="max-w-[1200px] mx-auto text-left mb-10">
+        <h2 class="text-[1.8rem] text-[#333] font-bold mb-2">Artikel & Insight Terbaru</h2>
+        <p class="text-[#666] text-base">Bacaan ringan untuk bantu kamu memahami diri dan menjaga pikiran tetap tenang.</p>
       </div>
 
-      <div class="card-grid">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-[30px] max-w-[1200px] mx-auto">
         <div 
-          v-for="(item, index) in articles" 
+          v-for="(item, index) in visibleArticles" 
           :key="index" 
-          class="card"
+          class="bg-white p-6 rounded-2xl shadow cursor-pointer group hover:shadow-xl transition duration-300"
           @click="openArticle(item.file)"
         >
-          <div class="icon-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff8fa3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
+          <div class="bg-[#ffe9ec] w-100 h-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-100 w-100 text-[#d86478]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
           
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.desc }}</p>
+          <h3 class="font-bold text-xl text-gray-800 mb-3 group-hover:text-[#d86478] transition">{{ item.title }}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">{{ item.desc }}</p>
+          <span class="text-[#d86478] text-sm font-bold">Baca Selengkapnya →</span>
         </div>
       </div>
       
-      <div class="load-more-container">
-        <button class="load-more-btn">Load more</button>
+      <div v-if="hasMoreArticles" class="text-center mt-[50px]">
+        <button 
+          @click="loadMore"
+          class="border-2 border-[#d86478] text-[#d86478] px-8 py-3 rounded-full font-bold hover:bg-[#d86478] hover:text-white transition"
+        >
+          Load more
+        </button>
       </div>
+
+      <div v-else class="text-center mt-[50px] text-gray-400 text-sm">
+        Semua artikel sudah ditampilkan
+      </div>
+
     </div>
 
-
-    <div v-else class="viewer-view">
-      <button @click="goBack" class="back-btn">
+    <div v-else class="max-w-[1200px] mx-auto">
+      <button 
+        @click="closeArticle" 
+        class="bg-transparent border-none text-[#ff8fa3] font-bold text-base cursor-pointer mb-5 flex items-center gap-2 hover:underline"
+      >
         ← Kembali ke Daftar Artikel
       </button>
       
-      <div class="iframe-container">
-        <iframe :src="selectedPdf" title="PDF Reader"></iframe>
+      <div class="w-full h-[85vh] rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] bg-white">
+        <iframe :src="selectedPdf" title="PDF Reader" class="w-full h-full border-none"></iframe>
       </div>
     </div>
 
   </div>
 </template>
-
-<style scoped>
-.page-container {
-  padding: 40px 20px;
-  background-color: #fff5f7;
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-}
-
-.header-section {
-  text-align: left;
-  margin-bottom: 40px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.header-section h2 {
-  font-size: 1.8rem;
-  color: #333;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.header-section p {
-  color: #666;
-  font-size: 1rem;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Kartu Artikel */
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2); 
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
-}
-
-.icon-wrapper {
-  background-color: #fff0f3;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  display: inline-block;
-}
-
-.card h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.card p {
-  font-size: 0.9rem;
-  color: #777;
-  line-height: 1.6;
-}
-
-/* Tombol Load More */
-.load-more-container {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.load-more-btn {
-  background-color: #fff0f3;
-  color: #ff8fa3;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.load-more-btn:hover {
-  background-color: #ffccd5;
-}
-
-/* STYLE UNTUK PDF VIEWER */
-.viewer-view {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.back-btn {
-  background: none;
-  border: none;
-  color: #ff8fa3;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.back-btn:hover {
-  text-decoration: underline;
-}
-
-.iframe-container {
-  width: 100%;
-  height: 85vh;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  background: white;
-}
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-</style>
