@@ -2,7 +2,7 @@
   <div class="w-full bg-[#FFE9E9] pb-20">
 
     <!-- Top Section with Image -->
-    <section class="max-w-5xl mx-auto px-6 pt-20 flex flex-col md:flex-row items-center gap-10">
+    <section class="max-w-5xl mx-auto px-6 pt-8 flex flex-col md:flex-row items-center gap-10">
       <!-- IMAGE 1 -->
       <img
         src="../assets/aboutus-img1.png"
@@ -21,7 +21,7 @@
     </section>
 
     <!-- Our Story -->
-    <section class="max-w-5xl mx-auto px-6 mt-20 flex flex-col md:flex-row items-center gap-10">
+    <section class="max-w-5xl mx-auto px-6 mt-12 flex flex-col md:flex-row items-center gap-10">
       <div class="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-md">
         <h3 class="text-xl font-semibold text-gray-800 mb-4">Our Story</h3>
         <p class="text-gray-600 leading-relaxed">
@@ -47,7 +47,7 @@
     </section>
 
     <!-- Visi & Misi -->
-    <section class="max-w-4xl mx-auto px-6 mt-20">
+    <section class="max-w-4xl mx-auto px-6 mt-12">
       <div class="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-md text-center">
         <h3 class="text-xl font-semibold text-gray-800 mb-4">VISI</h3>
         <p class="text-gray-600 mb-8">
@@ -68,7 +68,7 @@
     </section>
 
     <!-- What Makes Special -->
-    <section class="max-w-4xl mx-auto px-6 mt-20">
+    <section class="max-w-4xl mx-auto px-6 mt-12">
       <div class="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-md">
         <h3 class="text-xl font-semibold text-center text-gray-800 mb-6">
           What Makes MindMate Spesial
@@ -84,15 +84,15 @@
     </section>
 
     <!-- Bottom Image + CTA -->
-    <section class="max-w-3xl mx-auto px-6 mt-20 text-center">
+    <section class="max-w-3xl mx-auto px-6 mt-12 text-center">
       <!-- IMAGE 3 -->
       <img 
         src="../assets/aboutus-img3.png"
         alt="Meditation Illustration"
-        class="w-100 mx-auto"
+        class="w-90 mx-auto"
       />
 
-      <p class="text-gray-700 mt-6 italic">
+      <p class="text-gray-700 mt-6 mb-4 italic">
         “Kami percaya bahwa setiap langkah kecil menuju ketenangan itu berarti.” <br>
         Yuk, tumbuh bersama MindMate
       </p>
@@ -107,9 +107,3 @@
 
   </div>
 </template>
-
-<script setup>
-</script>
-
-<style scoped>
-</style>

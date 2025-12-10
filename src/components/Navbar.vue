@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-4">
 
       <!-- Logo -->
-      <router-link to="/home" class="flex items-center gap-2">
+      <router-link to="/" class="flex items-center gap-2">
         <img 
           src="../assets/logo-mindmate.png" 
           alt="MindMate Logo"

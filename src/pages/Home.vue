@@ -144,7 +144,7 @@ const loadMoreTestimonials = () => {
 
     <div v-if="!selectedPdf">
       
-      <section class="px-6 pt-0 pb-12 md:pt-0 md:pb-20">
+      <section class="px-6 pt-0 pb-12 md:pt-0 md:pb-8">
         <div class="max-w-6xl mx-auto flex flex-row items-start md:items-start gap-4 md:gap-12">
           
           <div class="flex-1 pt-8 md:pt-14">
@@ -159,7 +159,7 @@ const loadMoreTestimonials = () => {
             </p>
           </div>
 
-          <div class="w-[35%] md:w-1/3 flex md:max-w-sm justify-center flex-shrink-0 -mt-0 md:-mt-0">
+          <div class="w-[35%] md:w-1/3 flex md:max-w-sm justify-center flex-shrink-0 -mt-0 md:-mt-0 z-10">
             <img 
               :src="bungaotak" 
               alt="Ilustrasi Otak Bunga" 
@@ -171,9 +171,9 @@ const loadMoreTestimonials = () => {
       </section>
 
       <section class="px-6 py-8">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center bg-white/50 p-8 rounded-3xl backdrop-blur-sm border border-white/60">
-          <div class="bg-white rounded-3xl overflow-hidden h-64 md:h-80 shadow-md">
-            <img :src="image1" alt="mindmate" class="object-cover w-full h-full" />
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center bg-white/50 p-8 rounded-3xl backdrop-blur-sm border border-white/60">
+          <div class="bg-white rounded-3xl overflow-hidden shadow-md flex justify-center p-6">
+            <img :src="image1" alt="mindmate" class="object-contain w-[2/3] h-full" />
           </div>
           <div>
             <h2 class="text-3xl font-bold text-[#d86478] mb-6">Apa itu Mindmate?</h2>
@@ -223,8 +223,8 @@ const loadMoreTestimonials = () => {
           <h2 class="text-3xl font-bold text-[#d86478] mb-12">Tips Self Care Harian</h2>
 
           <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
-            <div class="rounded-3xl overflow-hidden h-70 shadow-lg bg-white">
-               <img :src="image2" alt="morning" class="w-full h-full object-cover" />
+            <div class="rounded-3xl overflow-hidden shadow-lg bg-white p-0 flex justify-center">
+               <img :src="image2" alt="morning" class="w-[2/3] h-full object-contain" />
             </div>
             <div>
               <h3 class="text-2xl font-bold text-gray-800 mb-4">Buat Rutinitas Tenang</h3>
@@ -241,8 +241,8 @@ const loadMoreTestimonials = () => {
                 Nggak apa-apa kok buat bilang "aku butuh waktu sebentar". Kamu berhak untuk berhenti sejenak sebelum melanjutkan aktivitasmu. Istirahat bukan kesalahan.
               </p>
             </div>
-            <div class="order-1 md:order-2 rounded-3xl overflow-hidden h-66 shadow-lg bg-white">
-               <img :src="image3" alt="your passion" class="w-full h-full object-cover" />
+            <div class="order-1 md:order-2 rounded-3xl overflow-hidden shadow-lg bg-white p-0 flex justify-center">
+               <img :src="image3" alt="your passion" class="w-[2/3] h-full object-contain" />
             </div>
           </div>
         </div>
@@ -290,7 +290,7 @@ const loadMoreTestimonials = () => {
             <p class="text-gray-500">Bacaan ringan untuk bantu kamu memahami diri</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-[30px] max-w-[1200px] mx-auto">
+          <div class="grid grid-cols-1 px-5 md:px-0 md:grid-cols-4 gap-[30px] max-w-[1200px] mx-auto">
             <div 
               v-for="(item, index) in articles" 
               :key="index"

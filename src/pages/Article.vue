@@ -94,7 +94,7 @@ const closeArticle = async () => {
         <p class="text-[#666] text-base">Bacaan ringan untuk bantu kamu memahami diri dan menjaga pikiran tetap tenang.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-[30px] max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-1 px-5 md:px-0 md:grid-cols-4 gap-[30px] max-w-[1200px] mx-auto">
         <div 
           v-for="(item, index) in visibleArticles" 
           :key="index" 
