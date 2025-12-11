@@ -60,6 +60,7 @@
 
         <router-link to="/articles" class="hover:text-[#d86478] transition-all py-1  border-b-2 hover:border-[#d86478] border-transparent" active-class="text-[#d86478] font-bold border-[#d86478]">Article</router-link>
         <router-link to="/contact" class="hover:text-[#d86478] transition-all py-1 border-b-2 hover:border-[#d86478] border-transparent" active-class="text-[#d86478] font-bold border-[#d86478]">Contact</router-link>
+        <router-link to="/aboutme" class="hover:text-[#d86478] transition-all py-1 border-b-2 hover:border-[#d86478] border-transparent" active-class="text-[#d86478] font-bold border-[#d86478]">About Me</router-link>
       </ul>
 
       <!-- LOGIN / PROFILE DESKTOP -->
@@ -145,6 +146,10 @@
 
         <router-link 
           to="/contact" @click="close" active-class="text-[#d86478] bg-pink-50 font-bold border-[#d86478] pl-6" class="block px-4 py-3 border-l-4 border-transparent hover:bg-pink-50 hover:pl-6 transition-all duration-300">Contact</router-link>
+
+        <router-link 
+          to="/aboutme" @click="close" active-class="text-[#d86478] bg-pink-50 font-bold border-[#d86478] pl-6" class="block px-4 py-3 border-l-4 border-transparent hover:bg-pink-50 hover:pl-6 transition-all duration-300">About me</router-link>
+
 
         <div class="border-t border-pink-100 p-4 bg-pink-50/30">
           <router-link v-if="!user" to="/login" @click="close" class="block w-full text-center bg-[#d86478] text-white font-bold py-3 rounded-xl shadow-md active:scale-95 transition-transform duration-200">

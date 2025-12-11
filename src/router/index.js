@@ -13,6 +13,7 @@ import Faq from '../pages/Faq.vue'
 import PrivacyPolicy from '../pages/PrivacyPolicy.vue'
 import TermCondition from '../pages/TermCondition.vue'
 import Dashboard from '../pages/Dashboard.vue'
+import AboutMe from '../pages/AboutMe.vue'
 
 const routes = [
   { path: '/', component: LandingPage, meta: { hideFooter: true }},
@@ -28,7 +29,8 @@ const routes = [
   { path: '/faq', component: Faq},
   { path: '/privacy-policy', component: PrivacyPolicy},
   { path: '/terms', component: TermCondition},
-  { path: '/dashboard', component: Dashboard, meta: { hideFooter: true }}
+  { path: '/dashboard', component: Dashboard, meta: { hideFooter: true }},
+  { path: '/aboutme', component: AboutMe }
 ]
 
 const router = createRouter({
