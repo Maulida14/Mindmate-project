@@ -70,6 +70,10 @@ const toggleFeatures = () => {
             <router-link to="/contact" class="hover:text-[#d86478] hover:underline transition-colors">Contact</router-link>
           </li>
 
+          <li>
+            <router-link to="/aboutme" class="hover:text-[#d86478] hover:underline transition-colors">About Me</router-link>
+          </li>
+
         </ul>
       </div>
 

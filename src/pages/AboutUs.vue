@@ -47,41 +47,148 @@
     </section>
 
     <!-- Visi & Misi -->
-    <section class="max-w-4xl mx-auto px-6 mt-12">
-      <div class="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-md text-center">
-        <h3 class="text-xl font-semibold text-gray-800 mb-4">VISI</h3>
-        <p class="text-gray-600 mb-8">
-          Membangun generasi muda yang sadar akan pentingnya kesehatan mental, mampu memahami 
-          diri sendiri, dan tumbuh menjadi pribadi yang bahagia dan seimbang.
-        </p>
+    <section class="max-w-4xl mx-auto px-6 mt-16 space-y-10 bg-white/60 backdrop-blur-md rounded-3xl p-10 shadow-lg">
+      <h3 class="text-2xl font-semibold text-center text-gray-800 mb-10">
+      Visi & Misi
+    </h3>
 
-        <h3 class="text-xl font-semibold text-gray-800 mb-4">MISI</h3>
-        <ul class="text-gray-600 space-y-2 text-left list-disc pl-6">
-          <li>Menyediakan ruang refleksi pribadi yang aman dan nyaman.</li>
-          <li>Mendampingi proses pemahaman diri.</li>
-          <li>Menyebarkan edukasi dan kesadaran tentang kesehatan mental.</li>
-          <li>Mendorong self-love dan self-growth.</li>
-          <li>Membangun komunitas positif dan suportif.</li>
-          <li>Menghadirkan pengalaman digital yang manusiawi.</li>
-        </ul>
-      </div>
-    </section>
+  <!-- VISI -->
+  <div
+    class="bg-[#ffe9ec] rounded-3xl p-8 shadow-md text-center
+           transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1"
+  >
+    <div
+      class="w-14 h-14 mx-auto mb-4 rounded-full bg-white
+             flex items-center justify-center text-2xl text-[#d86478]
+             transition-transform duration-300 hover:scale-110"
+    >
+      🌸
+    </div>
+
+    <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+      Visi
+    </h3>
+
+    <p class="text-gray-600 leading-relaxed">
+      Membangun generasi muda yang sadar akan pentingnya kesehatan mental,
+      mampu memahami diri sendiri, dan tumbuh menjadi pribadi yang bahagia
+      serta seimbang.
+    </p>
+  </div>
+
+  <!-- MISI -->
+  <div
+    class="bg-[#ffe9ec] rounded-3xl p-8 shadow-md
+           transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1"
+  >
+    <div
+      class="w-14 h-14 mx-auto mb-4 rounded-full bg-white
+             flex items-center justify-center text-2xl text-[#d86478]
+             transition-transform duration-300 hover:scale-110"
+    >
+      🌿
+    </div>
+
+    <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+      Misi
+    </h3>
+
+    <ul class="space-y-3 text-gray-600">
+      <li class="flex gap-3">
+        <span class="text-[#d86478]">✔</span>
+        Menyediakan ruang refleksi pribadi yang aman dan nyaman.
+      </li>
+      <li class="flex gap-3">
+        <span class="text-[#d86478]">✔</span>
+        Mendampingi proses pemahaman diri.
+      </li>
+      <li class="flex gap-3">
+        <span class="text-[#d86478]">✔</span>
+        Menyebarkan edukasi dan kesadaran kesehatan mental.
+      </li>
+      <li class="flex gap-3">
+        <span class="text-[#d86478]">✔</span>
+        Mendorong self-love dan self-growth.
+      </li>
+      <li class="flex gap-3">
+        <span class="text-[#d86478]">✔</span>
+        Membangun komunitas positif dan suportif.
+      </li>
+      <li class="flex gap-3">
+        <span class="text-[#d86478]">✔</span>
+        Menghadirkan pengalaman digital yang manusiawi.
+      </li>
+    </ul>
+  </div>
+
+</section>
+
 
     <!-- What Makes Special -->
-    <section class="max-w-4xl mx-auto px-6 mt-12">
-      <div class="bg-white/60 backdrop-blur-md rounded-2xl p-8 shadow-md">
-        <h3 class="text-xl font-semibold text-center text-gray-800 mb-6">
-          What Makes MindMate Spesial
-        </h3>
+    <section class="max-w-5xl mx-auto px-6 mt-16">
+    <div class="bg-white/60 backdrop-blur-md rounded-3xl p-10 shadow-lg">
+    <h3 class="text-2xl font-semibold text-center text-gray-800 mb-10">
+      What Makes MindMate Special ✨
+    </h3>
 
-        <ul class="text-gray-600 space-y-3 list-decimal pl-6">
-          <li><span class="font-medium">Friendly Design</span> — Tampilan lembut untuk menemani hari-hari berat.</li>
-          <li><span class="font-medium">Personal Space</span> — Tempat aman untuk refleksi diri.</li>
-          <li><span class="font-medium">Daily Balance</span> — Bantu menjaga keseimbangan emosi.</li>
-          <li><span class="font-medium">Positive Growth</span> — Dorongan kecil untuk berkembang setiap hari.</li>
-        </ul>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <!-- Item -->
+      <div class="flex items-start gap-4 bg-[#ffe9ec] p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#d86478] text-xl">
+          💗
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 mb-1">Friendly Design</h4>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Tampilan lembut untuk menemani hari-hari berat.
+          </p>
+        </div>
       </div>
-    </section>
+
+      <div class="flex items-start gap-4 bg-[#ffe9ec] p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#d86478] text-xl">
+          🧠
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 mb-1">Personal Space</h4>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Tempat aman untuk refleksi diri.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 bg-[#ffe9ec] p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#d86478] text-xl">
+          🌿
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 mb-1">Daily Balance</h4>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Bantu menjaga keseimbangan emosi.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 bg-[#ffe9ec] p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#d86478] text-xl">
+          🌱
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 mb-1">Positive Growth</h4>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Dorongan kecil untuk berkembang setiap hari.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
     <!-- Bottom Image + CTA -->
     <section class="max-w-3xl mx-auto px-6 mt-12 text-center">
@@ -98,8 +205,9 @@
       </p>
 
         <button 
-        @click="$router.push('/login')" 
-        class="border-2 border-[#d86478] text-[#d86478] bg-pink/30 px-8 py-3 rounded-full font-bold hover:bg-[#d86478] hover:text-white transition duration-300 backdrop-blur-sm"
+        v-if="!isLoggedIn"
+        @click="$router.push('/login')"
+        class= "border-2 border-[#d86478] text-[#d86478] bg-pink/30 px-8 py-3 rounded-full font-bold hover:bg-[#d86478] hover:text-white transition duration-300 backdrop-blur-sm"
         >
         Start Your Journey
         </button>
@@ -107,3 +215,14 @@
 
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const isLoggedIn = ref(false)
+
+onMounted(() => {
+  isLoggedIn.value = !!localStorage.getItem('authToken')
+})
+</script>
+

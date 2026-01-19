@@ -6,7 +6,7 @@ import myfoto from '../assets/Maulida-Rahmayanti.jpg';
 const skils = [
     'Manajemen waktu',
     'Mudah adaptasi',
-    'Komuikasi'
+    'Komunikasi'
 ]
 </script>
 
@@ -30,17 +30,17 @@ const skils = [
             </p>
           </div>
 
-          <div class="w-[35%] md:w-1/3 flex md:max-w-sm justify-center flex-shrink-0 -mt-0 md:-mt-0 z-10">
+          <div class="hidden md:block md:max-w-sm justify-center shadow hover:-translate-y-2 transition duration-300 mt-8 rounded-2xl">
             <img 
               :src="myfoto" 
-              alt="Ilustrasi Otak Bunga" 
-              class="w-[2/3] object-contain" 
+              alt="Image" 
+              class="w-[250px] object-contain rounded-2xl shadow-lg" 
             />
           </div>
 
         </div>
       </section>
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
             <div 
               v-for="(index) in skils"
               :key="index"
